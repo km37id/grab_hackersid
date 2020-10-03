@@ -35,6 +35,7 @@ function nontifer($result, $x, $page, $nontifer, $date, $red, $green2, $putih){
     curl_close ($curl);
     $result = explode('"url":"http:\/\/', $result);
     $result = explode('\/', $result[$x]);
+	$result = explode('","system":"', $result[0]);
     if($result[0] == null){
 		echo "{$red} - {$putih} Failed to retrieve data\n";
 	}else{
@@ -54,6 +55,7 @@ function home($url, $i, $date, $red, $green2, $putih){
 	$res = explode('</td>', $res[$i]);
 	$res = explode('<td>', $res[0]);
 	$res = explode('/', $res[1]);
+	$res = explode('","system":"', $res[0]);
 	if($res[0] == null){
 		echo "{$red} - {$putih} Failed to retrieve data\n";
 	}else{
